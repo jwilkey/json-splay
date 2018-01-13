@@ -38,7 +38,6 @@ export default {
           this.processObject(value)
         }
       } catch (e) {
-        debugger
       }
     },
     processArray (array, inputKey) {
