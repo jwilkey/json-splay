@@ -1,5 +1,6 @@
 'use strict'
 require('./check-versions')()
+require('shelljs/global')
 
 process.env.NODE_ENV = 'production'
 
@@ -16,6 +17,9 @@ spinner.start()
 
 rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
   if (err) throw err
+
+  cp('-f', './CNAME', config.build.assetsRoot)
+
   webpack(webpackConfig, (err, stats) => {
     spinner.stop()
     if (err) throw err
